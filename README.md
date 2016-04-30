@@ -216,19 +216,6 @@ $('head link[rel=\'stylesheet\']')['last']()['after']('<style>.connectServer2 { 
 $('head link[rel=\'stylesheet\']')['last']()['after']('<style>.connectServer2:hover { background: #1017cf!important}</style>');
 $('head link[rel=\'stylesheet\']')['last']()['after']('<style>.btn-m69:hover {    color: #fff;    background-color: #8b9531;    border-color: #ffffff}</style>');
 
-$("#skin_url").css("width", "calc(100% - 50px)");
-$("#skin_url").after("<button type='button' id='hide_url' class='btn btn-danger' style='margin-left:5px;width:45px;height:34px' value='hide'><i class='glyphicon glyphicon-eye-open'></i></button>");
-var skin_url = "";
-$("#hide_url").click(function() {
-    if (this.value == 'hide') {
-        this.value = 'show';
-        skin_url = $("#skin_url").val();
-        $("#skin_url").css('padding-left', 'calc(100% - 62px)')
-    } else {
-        this.value = 'hide';
-        $("#skin_url").css('padding-left', '12px')
-    }
-});
                  //info box UPDATE MANUALLY
                 $("#mainPanel").prepend("<div id='infoKdiv' style='background-color: rgba(66,60,70,0.8);width: 350px;margin-left: -25px;border-bottom: 3.5px solid #428bca;font-size: 20px;padding: 5px;font-weight: 500;color: #428bca;margin-top: -20px;margin-bottom: 7px;' align='center'>㊣ȚЯΔɢΔ ȚЯΔɢΔ浓</div>");
                 
@@ -274,6 +261,14 @@ $("#hide_url").click(function() {
                 k_addStyle.after("<style>.sender { color: #f2ea0c !important}</style>");       //Username Chat RightClick
                 k_addStyle.after("<style>.toast_sender { color: #f2ea0c !important}</style>"); //Username Chat
                 $("#lb_detail").css({"text-align":"left","padding-left":"0.2cm"})
+                
+                             //Hide/Show skin URL
+                var skin_Ku = $("#skin_url");
+                skin_Ku.css("width", "calc(100% - 50px)").after("<button type='button' id='hide_url' class='btn kMarked' style='margin-left:5px;width:43px;height:34px;color:#ffffff'>👁</button>");
+                $("#hide_url").click(function(){
+                    skin_Ku.toggleClass("urlKMarked");
+                   $(this).toggleClass("kMarked");
+                });
                 
                 //END
                 $('<a class="btn btn-success btn-zeroK" style="margin-top:10px" href="http://agarforums.io/" target="_blank" id="kIPlist">Agarforums</a>').insertAfter("#btn_copy_gameinfo");
