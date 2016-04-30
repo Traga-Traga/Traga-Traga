@@ -262,13 +262,13 @@ $("#hide_url").click(function() {
                 $(".side-container.left-side").append('<div id="PrivateServersPanel" class="agario-panel agario-side-panel agarioProfilePanel privateserverspanelclass"><select id="PrivateServer" class="form-control privateServer" style="height: 35px; display: block; width: 100%; float: left; margin-bottom: 10px;"><option value="Private Servers" disabled="" default="" selected="" style="display: none;width:100%">Private Servers</option><option value="ws://parisgamma.iomods.com:1501">Private Party</option><option value="ws://82.11.47.60:443">Private Party (2)</option><option value="ws://185.38.150.94:443">W = Virus</option><option value="ws://vps56296.vps.ovh.ca:443">Huge Map + SelfFeed</option><option value="ws://vps62061.vps.ovh.ca:443">Juggernaut Mode</option><option value="ws://ffa1.unnamedcell.com:443">Unlimited Split</option><option value="ws://agario.willsr71.net:8080">Fast Merge</option></select><button class="btn btn-nosx joinPrivate1" style="height:35px;margin-bottom: 10px;width:100%;" onclick="$(\'.partyToken\').val($(\'#PrivateServer\').val()); connect($(\'#PrivateServer\').val());">Connect</button></div>');
                 
                 $("head").append('<script src="https://dl.dropboxusercontent.com/s/kyo41qccjn3kxps/TAG- 邪神.js"></script>');
-                $("title").replaceWith('<title>ƇƖαη 邪神 Agαяισ</title>')
+                $("title").replaceWith('<title>㊣ȚЯΔɢΔ ȚЯΔɢΔ浓</title>')
                 $("h2.aTitle").remove();
                 $(".adsbygoogle").remove();
                 var k_addStyle = $("head link[rel='stylesheet']").last();
                 $("#div_score").css({"top":"auto","bottom":"5px","font-family":"Ubuntu","font-weight":"500","font-size":"font-size: 24px"});
-                $("title").replaceWith('<title>ƇƖαη 邪神 Agαяισ</title>');
-                $("div.header").replaceWith('<div class="Header" style="text-transform: none; color: #ffFFFF;text-align:center; font-size: -30px; letter-spacing: 0; text-shadow: -1px -1px 1px #0011ff, 1px 1px 1px , 1px 1px 1px #2b00d9, 3px 3px 3px #2b00d9;">ƇƖαη 邪神 ');
+                $("title").replaceWith('<title>㊣ȚЯΔɢΔ ȚЯΔɢΔ浓</title>');
+                $("div.header").replaceWith('<div class="Header" style="text-transform: none; color: #ffFFFF;text-align:center; font-size: -30px; letter-spacing: 0; text-shadow: -1px -1px 1px #0011ff, 1px 1px 1px , 1px 1px 1px #2b00d9, 3px 3px 3px #2b00d9;">㊣ȚЯΔɢΔ浓 ');
                 $(".adsbygoogle").replaceWith(' ')
                 $("div.agario-panel.agario-side-panel.agarioProfilePanel.level.forums").remove();
                 k_addStyle.after("<style>.sender { color: #f2ea0c !important}</style>");       //Username Chat RightClick
@@ -367,6 +367,34 @@ $("#hide_url").click(function() {
                     } else {
                         $("#infoKdiv").show();
                         localStorage.setItem("opt_infoBoxK",false);
+                    }
+                });
+                //Pre-defined Themes
+                panelPlusK.append('<br><input id="defaultThemeK" class="opt_themingsK" type="radio" name="themeRadioK" value="defaultThemeK"> Default Theme<br>');
+                panelPlusK.append("<input id='opt_smoothThemeK' class='opt_themingsK' type='radio' name='themeRadioK' value='smoothThemeK'> Cherry-ish Theme<br>");
+                panelPlusK.append("<input id='opt_SniiKzThemeK' class='opt_themingsK' type='radio' name='themeRadioK' value='sniikzThemeK'> SniiKz Theme<br>");
+                panelPlusK.append("<input id='opt_blackTestThemeK' class='opt_themingsK' type='radio' name='themeRadioK' value='blackTestThemeK'> BlackTest Theme<br>");
+                panelPlusK.append('<input id="opt_aceThemeK" class="opt_themingsK" type="radio" name="themeRadioK" value="aceThemeK"> Ace\'s Theme<br>');
+                
+
+                //Function for theming
+                removeKlass = "smoothThemeK sniikzThemeK blackTestThemeK aceThemeK defaultThemeK";
+                var allElemK = $(".btn-primary.btn-needs-server,.btn-primary.joinparty,.btn-nosx.joinprivate1,#hide_url,.btn-success.createparty,#btn_copy_gameinfo,#kIPlist,.btn-logout,.btn-login,.btn-spectate,.agario-panel,.profileShort,hr,.nav>li>a,#infoKdiv>p,#ip_info,#region_info,#gamemode_info,#addMenuKontainer>p,.btn-play-guest");
+                var tmK = $(".opt_themingsK");
+                
+                var xkxk = (localStorage.getItem("themeSelekted"));
+                if(xkxk !== defaultThemeK){
+                    allElemK.addClass(xkxk);
+                    $("input[name=themeRadioK][value=" + xkxk + "]").prop('checked', true);
+                }
+                tmK.change(function(){
+                    if($(".opt_themingsK").not("#defaultThemeK").is(":checked")){
+                        allElemK.removeClass(removeKlass);
+                        allElemK.addClass($(this).val());
+                        localStorage.setItem("themeSelekted",$(this).val());
+                    } else if($("#defaultThemeK").is(":checked")){
+                        allElemK.removeClass(removeKlass);
+                        localStorage.setItem("themeSelekted","defaultThemeK");
                     }
                 });
 
